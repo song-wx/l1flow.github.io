@@ -197,6 +197,46 @@
         </div>
       </div>
     </div>
+    <figure class="has-text-centered">
+    <div class="columns is-centered">
+        <div class="column">
+          <div class="content has-text-centered">
+            <video id="teaser-left" autoplay muted controls playsinline style="width: 100%; height: 100%;">
+              <source src="./static/ddpm.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered" style="font-size: 15pt;">DDPM (100 steps)</h2>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content has-text-centered">
+            <video id="teaser-right" autoplay muted controls playsinline style="width: 100%; height: 100%;">
+              <source src="./static/ddim.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered" style="font-size: 15pt;">DDIM (16 steps)</h2>
+          </div>
+        </div>
+        <div class="column">
+            <div class="content has-text-centered">
+              <video id="teaser-right" autoplay muted controls playsinline style="width: 100%; height: 100%;">
+                <source src="./static/l1flow.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle has-text-centered" style="font-size: 15pt;">L1 Flow (Ours)</h2>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content has-text-centered">
+              <div class="image-container">
+                    <img src="./static/exp3.jpg" alt="Results" style="width: 400pt; display:inline-block;">
+              </div>
+              <h2 class="subtitle has-text-centered" style="font-size: 15pt;">Overall Results</h2>
+            </div>
+        </div>
+    </div>
+    <figcaption style="margin-top: 10px; font-size: 11pt;">
+        6. Comparison of DDPM, DDIM, and L1Flow in real-world execution.
+      </figcaption>
+    </figure>
+    <br>
     <p>
         We first compare the proposed two-step sampling strategy with 2 standard denoising-based methods ie. DDPM (100 steps) and Flow Matching (10 steps), and L1 regression in 8 tasks of MimicGen Benchmark.
     </p>
@@ -204,6 +244,10 @@
     <p>
         Then, as an efficient paradigm aiming at speeding up, L1 Flow is compared to distillation-based methods ie. Consistency Policy (CP) and OneDP in total 5 tasks of Robomimic and PushT Bench.
     </p>
+    <p>
+        
+    </p>
+
   </div>
 </section>
 
