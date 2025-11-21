@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>L1Flow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .publication-title { font-family: 'Google Sans', sans-serif; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; font-size: 1.2rem; color: #4a4a4a; margin-top: 20px}
+    .author-block { margin-right: 10px; }
+    .publication-links { margin-top: 20px; }
+    .abstract-box { background-color: #f5f5f5; padding: 30px; border-radius: 10px; }
+    .figure-caption { font-size: 0.9rem; color: #666; margin-top: 10px; }
+    .teaser-video { width: 100%; border-radius: 10px; }
+    /* 图片居中样式 */
+    .image-container { text-align: center; margin-bottom: 20px; }
+    img { max-width: 100%; height: auto; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <h1 class="title is-1 publication-title">L1 Sample Flow for Efficient Visuomotor Learning
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="www.scholar.com">Weixi Song</a><sup>1,2,3</sup>,</span>
+            <span class="author-block">
+              <a href="#">Zhetao Chen</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="#">Tao Xu</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+                <a href="#">Xianchao Zeng</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+                <a href="#">Xinyu Zhou</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+                <a href="#">Lixin Yang</a><sup>2,4</sup>
+            </span>
+            <br>
+            <span class="author-block">
+                <a href="#">Donglin Wang</a><sup>3&dagger;</sup>
+            </span>
+            <span class="author-block">
+                <a href="#">Cewu Lu</a><sup>2,4</sup>
+            </span>
+            <span class="author-block">
+                <a href="#">Yonglu Li</a><sup>2,4&dagger;</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Innovation Institute</span>
+            <span class="author-block"><sup>3</sup>Westlake University</span>
+            <br>
+            <span class="author-block"><sup>4</sup>Shanghai Jiao Tong University</span>
+            <br>
+            <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=".pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://github.com" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="image-container">
+    <img src="./static/outline.jpg" alt="Method Diagram" style="width: 30%;">
+    <p class="figure-caption">1. Overview.</p>
+</div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified abstract-box">
+          <p>
+            Denoising-based models, such as diffusion and flow matching, have been a critical component of robotic manipulation for their strong distribution-fitting and scaling capacity. Concurrently, several works have demonstrated that simple learning objectives, such as L1 regression, can achieve performance comparable to denoising-based methods on certain tasks, while offering faster convergence and inference. In this paper, we focus on how to combine the advantages of these two paradigms: <strong>retaining the ability of denoising models to capture multi-modal distributions and avoid mode collapse while achieving the efficiency of the L1 regression objective.</strong> 
+          </p>
+          <p>
+            To achieve this vision, we reformulate the original v-prediction flow matching and transform it into sample-prediction with the L1 training objective. We empirically show that the multi-modality can be expressed via a single ODE step. Thus, we propose <strong>L1 Flow</strong>, a two-step sampling schedule that generates a suboptimal action sequence via a single integration step and then reconstructs the precise action sequence through a single prediction. The proposed method largely retains the advantages of flow matching while reducing the iterative neural function evaluations to merely two and mitigating the potential performance degradation associated with direct sample regression. 
+          </p>
+          <p>
+            We evaluate our method with varying baselines and benchmarks, including 8 tasks in MimicGen, 5 tasks in RoboMimic   & PushT Bench, and one task in the real-world scenario. The results show the advantages of the proposed method with regard to training efficiency, inference speed, and overall performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="columns is-centered">
+        <div class="column">
+        <div class="content has-text-justified">
+          <div class="image-container">
+                <img src="./static/toy.jpg" alt="Results" style="width: 300pt; display:inline-block;">
+                <p class="figure-caption">2. One-step integration effectively captures the multi-modality.</p>
+          </div>
+        </div>
+        </div>
+        <div class="column">
+            <div class="content has-text-justified">
+              <div class="image-container">
+                    <img src="./static/algo.jpg" alt="Results" style="width: 220pt; display:inline-block;">
+                    <p class="figure-caption">3. Pseudocode</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <p>
+        We consider a variant of Flow Matching where the model directly predicts the terminal sample rather than the instantaneous velocity. Instead of learning the instantaneous velocity field \(x_1-x_0\), the model \(\textcolor{red}{f_\theta(x_t,t)}\) predicts the corresponding terminal sample \(x_1\) conditioned on the intermediate state \(x_t\) and time \(t\):
+        \begin{equation}
+            \textcolor{red}{f_\theta(x_t,t)}=\frac{dx_t}{dt}=x_1-x_0\Rightarrow x_1.
+        \end{equation}
+        The instantaneous velocity can then be implicitly recovered as: 
+        \begin{equation}
+        \begin{aligned}
+            v=x_1-x_0&=\frac{\textcolor{red}{f_\theta(x_t,t)}-x_t}{1-t}.  
+        \end{aligned}
+        \end{equation}
+        This yields a sample-prediction flow whose dynamics are defined by the ODE:
+        \begin{equation}
+            \frac{dx}{dt}=\frac{\textcolor{red}{f_\theta(x_t,t)}-x_t}{1-t}.
+        \end{equation}
+        At training time, the model is optimized to minimize the discrepancy between the predicted terminal sample \(x_{pred}\) and the true target sample \(x_1\). We employ L1 loss to supervise the target samples:
+        \begin{equation}
+        \mathcal{L}=\mathbb{E}_{x_0\sim\mathcal{N}(0,1),x_1\sim data,t}\ ||\textcolor{red}{f_\theta(x_t,t)}-x_1||_1.
+        \label{eq:x_loss_L1}
+        \end{equation}
+      </p>
+      <p>
+        During inference, we introduce a two-step denoising schedule that combines continuous flow integration with direct sample prediction. See details in the pseudocode.
+      </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2>
+        <div class="content has-text-justified">
+          <div class="image-container">
+             <img src="./static/exp1.jpg" alt="Results">
+             <p class="figure-caption">4. Experiments in MimicGen.</p>
+          </div>
+          <div class="image-container">
+            <img src="./static/exp2.jpg" alt="Results">
+            <p class="figure-caption">5. Experiments in RoboMimic.</p>
+         </div>
+        </div>
+      </div>
+    </div>
+    <p>
+        We first compare the proposed two-step sampling strategy with 2 standard denoising-based methods ie. DDPM (100 steps) and Flow Matching (10 steps), and L1 regression in 8 tasks of MimicGen Benchmark.
+    </p>
+    <br>
+    <p>
+        Then, as an efficient paradigm aiming at speeding up, L1 Flow is compared to distillation-based methods ie. Consistency Policy (CP) and OneDP in total 5 tasks of Robomimic and PushT Bench.
+    </p>
+  </div>
+</section>
+
+
+
+</body>
+</html>
