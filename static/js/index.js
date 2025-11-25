@@ -119,6 +119,57 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
+// Synchronize teaser videos playback
+function setupSyncedTeaserVideos() {
+    const videos = document.querySelectorAll('.synced-video');
+    if (videos.length === 0) return;
+
+    let syncing = false;
+    let readyCount = 0;
+
+    const syncVideos = (source, action) => {
+        if (syncing) return;
+        syncing = true;
+        videos.forEach(video => {
+            if (video === source) return;
+            if (action === 'play') {
+                video.currentTime = source.currentTime;
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {});
+                }
+            } else if (action === 'pause') {
+                video.pause();
+            } else if (action === 'seek') {
+                video.currentTime = source.currentTime;
+            } else if (action === 'timeupdate' && !source.paused) {
+                if (Math.abs(video.currentTime - source.currentTime) > 0.05) {
+                    video.currentTime = source.currentTime;
+                }
+            }
+        });
+        syncing = false;
+    };
+
+    videos.forEach(video => {
+        video.addEventListener('play', () => syncVideos(video, 'play'));
+        video.addEventListener('pause', () => syncVideos(video, 'pause'));
+        video.addEventListener('seeking', () => syncVideos(video, 'seek'));
+        video.addEventListener('timeupdate', () => syncVideos(video, 'timeupdate'));
+        video.addEventListener('loadeddata', () => {
+            readyCount += 1;
+            if (readyCount === videos.length) {
+                videos.forEach(v => {
+                    const playPromise = v.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {});
+                    }
+                });
+            }
+        }, { once: true });
+    });
+}
+
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
 
@@ -138,5 +189,6 @@ $(document).ready(function() {
     
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
+    setupSyncedTeaserVideos();
 
 })
