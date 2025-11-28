@@ -5,13 +5,10 @@ This repository hosts the project website for **“L1 Sample Flow for Efficient 
 ## Citation
 
 ```
-@misc{song2025l1sampleflowefficient,
-  title={L1 Sample Flow for Efficient Visuomotor Learning}, 
-  author={Weixi Song and Zhetao Chen and Tao Xu and Xianchao Zeng and Xinyu Zhou and Lixin Yang and Donglin Wang and Cewu Lu and Yong-Lu Li},
-  year={2025},
-  eprint={2511.17898},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  url={https://arxiv.org/abs/2511.17898}, 
+@article{song2025l1,
+  title={L1 Sample Flow for Efficient Visuomotor Learning},
+  author={Song, Weixi and Chen, Zhetao and Xu, Tao and Zeng, Xianchao and Zhou, Xinyu and Yang, Lixin and Wang, Donglin and Lu, Cewu and Li, Yong-Lu},
+  journal={arXiv preprint arXiv:2511.17898},
+  year={2025}
 }
 ```
